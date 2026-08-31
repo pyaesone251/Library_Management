@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Author Form View -->
+    <record id="view_library_author_view" model="ir.ui.view">
+        <field name="name">library.author.view</field>
+        <field name="model">library.author</field>
+        <field name="arch" type="xml">
+            <form string="author">
+                <sheet>
+                    <field name="image" widget="image" class="oe_avatar"/>
+                    <group>
+                     <field name="name"/>
+                     <field name="email" />
+                     <field name="description" />   
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Author List View -->
+     <record id="view_library_author_list" model="ir.ui.view">
+        <field name="name">library.author.list</field>
+        <field name="model">library.author</field>
+        <field name="arch" type="xml">
+            <list string="Authors">
+                <field name="name"/>
+                <field name="email" />
+                <field name="description" />
+            </list>
+        </field>
+     </record>
+
+    <!-- Author Action -->
+    <record id="aciton_library_author_view" model="ir.actions.act_window">
+        <field name="name">Authors</field>
+        <field name="res_model">library.author</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add a new auhors
+            </p>
+        </field>
+    </record>
+</odoo>

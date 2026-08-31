@@ -1,0 +1,20 @@
+{
+    'name':'Library Management',
+    'version':'1.0',
+    'category':'student',
+    'author':'Pyae Sone',
+    'depends':['contacts'],
+    'data':[
+        'security/ir.model.access.csv',
+        'views/library_book_views.xml',
+        'views/res_partner_views.xml',
+        'views/library_category_views.xml',
+        'views/library_author_views.xml',
+        'views/library_borrow_views.xml',
+        'views/library_menu.xml',
+    ],
+    'installable':True,
+    'application':True,
+    'auto_install':False,
+    'sequence':1,
+}

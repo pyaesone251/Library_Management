@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Category Form -->
+    <record id="view_book_category_form" model="ir.ui.view">
+        <field name="name">book.category.form</field>
+        <field name="model">library.category</field>
+        <field name="arch" type="xml">
+            <form string="Book Category">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="code" />
+                            <field name="shelf_location" />
+                            <field name="color" widget="color_picker" />
+                        </group>
+                        <group>
+                            <field name="description"/>
+                            <field name="active" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Category List -->
+     <record id="view_book_category_list" model="ir.ui.view">
+        <field name="name">book.category.list</field>
+        <field name="model">library.category</field>
+        <field name="arch" type="xml">
+            <list string="Category">
+                <field name="name"/>
+                <field name="code" />
+                <field name="shelf_location" />
+                <field name="color" widget="color_picker" />
+                <field name="description" optional="hide" />
+            </list>
+        </field>
+     </record>
+
+    <!-- Category Action -->
+    <record id="action_book_category_view" model="ir.actions.act_window">
+        <field name="name">Book Category</field>
+        <field name="res_model">library.category</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="xml">
+            <p class="o_view_nocontent_smiling_face">
+                Add a new book category
+            </p>
+        </field>
+    </record>
+</odoo>

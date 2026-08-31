@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Main Menu -->
+    <menuitem   id="library_menu_root" 
+                name="Library Book" 
+                sequence="1"/>
+
+    <menuitem   id="library_borrow_view"
+                name="Borrow"
+                parent="library_menu_root"
+                action="action_library_borrow_view"
+                sequence="1" />
+    
+    <menuitem   id="library_book_view"
+                name="Books"
+                parent="library_menu_root"
+                action="action_book_view"
+                sequence="2" />
+
+    <!-- Configuration -->
+    <menuitem   id="library_config_view"
+                name="Configuration"
+                parent="library_menu_root"
+                sequence="3" />
+
+    <!-- Sub Menu -->
+    <menuitem   id="book_category_view"
+                name="Categroy"
+                parent="library_config_view"
+                action="action_book_category_view"
+                sequence="1" />
+
+    <menuitem   id="library_authors_view"
+                name="Authors"
+                parent="library_config_view"
+                action="aciton_library_author_view"
+                sequence="2" />
+</odoo>

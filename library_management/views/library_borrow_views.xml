@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Borrow View Form -->
+    <record id="view_library_borrow_form" model="ir.ui.view">
+        <field name="name">library.borrow.form</field>
+        <field name="model">library.borrow</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="member_id" />
+                            <field name="book_id" />
+                        </group>
+                        <group>
+                            <field name="borrow_date"/>
+                            <field name="due_date" />
+                            <field name="active" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Borrow List View -->
+     <record id="view_library_borrow_list" model="ir.ui.view">
+        <field name="name">library.borrow.list</field>
+        <field name="model">library.borrow</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="member_id" />
+                <field name="book_id" />
+                <field name="borrow_date" />
+                <field name="due_date" />
+            </list>
+        </field>
+     </record>
+
+    <!-- Borrow Acriton -->
+    <record id="action_library_borrow_view" model="ir.actions.act_window">
+        <field name="name">Borrows</field>
+        <field name="res_model">library.borrow</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add a new borrow record
+            </p>
+        </field>
+    </record>
+</odoo>
