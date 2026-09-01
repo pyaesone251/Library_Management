@@ -1,0 +1,53 @@
+<odoo>
+    <data noupdate="1">
+        <!-- Author Data -->
+        <record id="kyaw_author" model="library.author">
+            <field name="name">Kyaw Kyaw</field>
+            <field name="email">kyaw@gmail.com</field>
+            <field name="image" type="base64" file="library_management/static/img/author.png"/>
+        </record>
+
+        <record id="aung_author" model="library.author">
+            <field name="name">Aung Aung</field>
+            <field name="email">aung@gmail.com</field>
+            <field name="image" type="base64" file="library_management/static/img/author.png" />
+        </record>
+
+        <record id="mg_author" model="library.author">
+            <field name="name">Mg Mg</field>
+            <field name="email">mg@gmail.com</field>
+            <field name="image" type="base64" file="library_management/static/img/author.png" />
+        </record>
+
+        <!-- Category Data -->
+        <record id="programming_category" model="library.category">
+            <field name="name">Programming</field>
+            <field name="code">PRG</field>
+            <field name="shelf_location">A-01</field>
+            <field name="description">Programming and software development books</field>
+            <field name="color">4</field>
+        </record>
+
+        <record id="business_category" model="library.category">
+            <field name="name">Business</field>
+            <field name="code">BUS</field>
+            <field name="shelf_location">B-01</field>
+            <field name="description">Business, management and entrepreneurship books</field>
+            <field name="color">11</field>
+        </record>
+
+        <record id="science_category" model="library.category">
+            <field name="name">Science</field>
+            <field name="code">SCI</field>
+            <field name="shelf_location">C-01</field>
+            <field name="description">Science and research related books</field>
+            <field name="color">9</field>
+        </record>
+    </data>
+</odoo>
+
+<!-- 
+A beginner-friendly guide to learning Python programming language.
+Essential strategies for business management and team leadership.
+Introduction to key scientific concepts and research methodologies.
+-->

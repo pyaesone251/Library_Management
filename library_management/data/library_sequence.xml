@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+    <!-- Book Sequence -->
+    <record id="book_code" model="ir.sequence">
+        <field name="name">Book Code</field>
+        <field name="code">book.code</field>
+        <field name="prefix">BOOK</field>
+        <field name="padding">3</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <!-- Category Sequence -->
+    <record id="borrow_code" model="ir.sequence">
+        <field name="name">Borrow Code</field>
+        <field name="code">borrow.code</field>
+        <field name="prefix">BOR</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <!-- Member Ship Sequence -->
+     <record id="member_sequence" model="ir.sequence">
+        <field name="name">Memeber Sequence</field>
+        <field name="code">res.partner</field>
+        <field name="prefix">MMB</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False" />
+     </record>
+</odoo>

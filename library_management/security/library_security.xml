@@ -16,8 +16,9 @@
         <field name="sequence">10</field>
     </record>
 
-    <record id="" model="">
-        <field name="name">Library Management</field>
+    <record id="group_library_user" model="res.groups">
+        <field name="name">Library user</field>
+        <field name="privilege_id" ref="library_management.res_groups_privilege_library_management"/>
         <field name="sequence">10</field>
     </record>
 </odoo>

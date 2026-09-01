@@ -5,17 +5,31 @@
                 name="Library Book" 
                 sequence="1"/>
 
+    <!-- Borrow Menu -->
     <menuitem   id="library_borrow_view"
                 name="Borrow"
                 parent="library_menu_root"
                 action="action_library_borrow_view"
                 sequence="1" />
     
+    <!-- Book Menu -->
     <menuitem   id="library_book_view"
                 name="Books"
                 parent="library_menu_root"
                 action="action_book_view"
                 sequence="2" />
+
+    <!-- Report Menu -->
+    <menuitem   id="libary_report_view"
+                name="Reports"
+                parent="library_menu_root"
+                sequence="3" />
+
+    <menuitem   id="book_report_view"
+                name="Book Reports"
+                parent="libary_report_view"
+                action="action_book_report_wizard"
+                sequence="1" />
 
     <!-- Configuration -->
     <menuitem   id="library_config_view"
