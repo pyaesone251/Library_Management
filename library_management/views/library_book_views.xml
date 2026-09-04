@@ -7,7 +7,7 @@
         <field name="arch" type="xml">
             <form string="Library Book">
                 <header>
-                    <button name="action_available" string="Available" type="object" class="btn btn-outline-success" />
+                    <button name="action_available" string="Available" type="object" class="btn btn-outline-success" invisible="state != 'draft'" />
                     <field name="state" widget="statusbar" statusbar_visible="draft,available,borrowed"/>
                 </header>
                 <sheet>

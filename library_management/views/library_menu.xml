@@ -3,6 +3,7 @@
     <!-- Main Menu -->
     <menuitem   id="library_menu_root" 
                 name="Library Book" 
+                web_icon = "library_management,static/img/logo.jpeg"
                 sequence="1"/>
 
     <!-- Borrow Menu -->

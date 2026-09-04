@@ -7,8 +7,9 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                    <button name="action_borrow" string="Borrowed" type="object" class="btn btn-outline-success" />
-                    <button name="action_returned" string="Return" type="object" class="btn btn-outline-warning" />                    <field name="state" widget="statusbar" statusbar_visible="draft,borrowed,returned,cancel"/> 
+                    <button name="action_borrow" string="Borrowed" type="object" class="btn btn-outline-success" invisible="state != 'draft'" />
+                    <button name="action_returned" string="Return" type="object" class="btn btn-outline-warning" invisible="state != 'borrowed'" />                    
+                    <field name="state" widget="statusbar" statusbar_visible="draft,borrowed,returned,cancel"/> 
                 </header>
                 <sheet>
                     <div class="oe_title">

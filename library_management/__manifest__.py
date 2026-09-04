@@ -6,11 +6,13 @@
     'depends':['contacts'],
     'data':[
         # Security
-        'security/ir.model.access.csv',
         'security/library_security.xml',
+        'security/ir.model.access.csv',
         # Sequence & Data
         'data/library_sequence.xml',
         'data/library_demo_data.xml', 
+        # Report
+        'reports/book_borrow_report.xml',
         # Wizard
         'wizard/book_report_wizard_view.xml',
         # View

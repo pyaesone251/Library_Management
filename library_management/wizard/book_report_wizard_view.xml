@@ -6,11 +6,11 @@
         <field name="arch" type="xml">
             <form string="Book Report Wizard">
                 <group>
-                    <group string="Date">
+                    <group>
                         <field name="start_date"/>
                         <field name="end_date" />
                     </group>
-                    <group string="Category">
+                    <group>
                         <field name="category_id"/>
                     </group>
                 </group>
