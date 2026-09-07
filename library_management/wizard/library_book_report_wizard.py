@@ -64,22 +64,22 @@ class LibraryBookReportWizard(models.TransientModel):
         worksheet.set_column("G:G",22)
 
         current_company = self.env.company
-        worksheet.merge_range("A1:G1",current_company.name,title_format)
-        worksheet.merge_range("A2:G2","Book List Reports",sub_title_format)
+        # worksheet.merge_range("A1:G1",current_company.name,title_format)
+        worksheet.merge_range("A1:G1","Book List Reports",title_format)
 
         books = self.env['library.book'].search([('published_date','>=',self.start_date),('published_date','<=',self.end_date),('category_id','=',self.category_id.id)if self.category_id else (1, '=', 1)])
 
         # Header
-        worksheet.write(2,0,"No",header_format)
-        worksheet.write(2,1,"Book Code",header_format)
-        worksheet.write(2,2,"Book Name",header_format)
-        worksheet.write(2,3,"Category",header_format)
-        worksheet.write(2,4,"Author",header_format)
-        worksheet.write(2,5,"Price",header_format)
-        worksheet.write(2,6,"Available Copies",header_format)
+        worksheet.write(1,0,"No",header_format)
+        worksheet.write(1,1,"Book Code",header_format)
+        worksheet.write(1,2,"Book Name",header_format)
+        worksheet.write(1,3,"Category",header_format)
+        worksheet.write(1,4,"Author",header_format)
+        worksheet.write(1,5,"Price",header_format)
+        worksheet.write(1,6,"Available Copies",header_format)
 
         # Data
-        row=3
+        row=2
         for no,book in enumerate(books,start=1):
             authors = ", ".join(book.author_ids.mapped('name')) if book.author_ids else '/'
             worksheet.write(row,0,no,text_format)
