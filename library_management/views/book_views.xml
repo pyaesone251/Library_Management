@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_book_form" model="ir.ui.view">
+        <field name="name">book.form</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button icon="fa-book" name="action_search" string="Search" type="object" class="btn btn-outline-info"/>
+                    <button icon="fa-credit-card" name="action_write" string="Write" type="object" class="btn btn-outline-info" />
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="author" />
+                            <field name="price" />
+                        </group>
+                        <group>
+                            <field name="category_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_book_list" model="ir.ui.view">
+        <field name="name">book.list</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="author" />
+                <field name="price" />
+                <field name="category_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_book" model="ir.actions.act_window">
+        <field name="name">Books</field>
+        <field name="res_model">library.book</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first record
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="library_book_menu" name="Books" parent="library_management_menu_root" action="action_book" sequence="10" />
+</odoo>
