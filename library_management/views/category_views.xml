@@ -5,8 +5,25 @@
         <field name="model">library.category</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <button name="action_count" string="Count" type="object" class="btn btn-outline-info"/>
+                    <button name="action_price" string="Price" type="object" class="btn btn-outline-info" />
+                </header> 
                 <sheet>
-                    <field name="name"/>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                    <notebook>
+                        <page string="Books">
+                            <field name="book_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="author" />
+                                    <field name="price" />
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
