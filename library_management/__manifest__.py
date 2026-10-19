@@ -4,8 +4,8 @@
     'depends': [],
     'data': [
         'security/ir.model.access.csv',
-        'views/category_views.xml',
-        'views/book_views.xml',
+        'views/library_book_views.xml',
+        'views/library_category_views.xml',
     ],
     'installable': True,
     'application': True,

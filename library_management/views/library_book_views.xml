@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_library_book_list" model="ir.ui.view">
+        <field name="name">library.book.list</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="author" />
+                <field name="price" />
+                <field name="category_id" />
+            </list>
+        </field>
+    </record>
+
+    <record id="view_library_book_form" model="ir.ui.view">
+        <field name="name">library.book.form</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="author" />
+                            <field name="price" />
+                            <field name="category_id" />
+                        </group>
+                        <group>
+                            <button name="action_create_book" string="Create Book" type="object" class="btn btn-primary"/>
+                            <button name="action_search_same_category" string="Same Category" type="object" class="btn btn-primary"/>
+                            <button name="action_search_cheap_book" string="Cheap Book" type="object" class="btn btn-primary"/>
+                            <button name="action_increase_price" string="Increase Price" type="object" class="btn btn-primary"/>
+                            <button name="action_move_to_history" string="Chang Category" type="object" class="btn btn-primary" />
+                            <button name="action_delete_book" string="Delete" type="object" class="btn btn-primary" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_book" model="ir.actions.act_window">
+        <field name="name">Library Book</field>
+        <field name="res_model">library.book</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create you are record
+            </p>
+        </field>
+    </record>
+
+    <!-- <menuitem id="library_management_menu_root" name="Library" sequence="10"/> -->
+    <menuitem id="library_book_menu" name="Book" sequence="10" parent="library_management_menu_root" action="action_book" /> 
+</odoo>
