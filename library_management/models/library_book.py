@@ -20,7 +20,7 @@ class LibraryBook(models.Model):
             'type':'ir.actions.act_window',
             'name':'Book Create',
             'res_model':'library.book',
-            'view_mode':'list',
+            'view_mode':'form',
             'res.id':book.id,
             'target':'current',
         }
@@ -45,8 +45,7 @@ class LibraryBook(models.Model):
 
     def action_search_cheap_book(self):
         self.ensure_one()
-        if not self.price:
-            raise UserError("Pls, check your price")
+
 
         cheap_price = self.env['library.book'].search([
             ('price','<',5000)
