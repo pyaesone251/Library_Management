@@ -6,6 +6,9 @@ class LibraryCategory(models.Model):
 
     name = fields.Char('Category Name')
     book_ids = fields.One2many('library.book','category_id',string='Books')
+    book_count = fields.Integer('Book Count',compute='_compute_book_count',store=True)
+    cheap_book_count = fields.Integer('Cheap Book Count',compute='_compute_cheap_book_count',store=True)
+    total_book_price = fields.Float('Total Book Price',compute="_compute_total_book_price",store=True)
 
 
     def action_count(self):
@@ -106,6 +109,26 @@ class LibraryCategory(models.Model):
                 'sticky':True,
             }
         }
+
+    @api.depends('book_ids')
+    def _compute_book_count(self):
+        for book in self:
+            book.book_count = len(book.book_ids)
+
+    @api.depends('book_ids','book_ids.price')
+    def _compute_cheap_book_count(self):
+        for category in self:
+            books = category.book_ids.filtered(
+                lambda price : price.price < 5000
+            )
+
+            category.cheap_book_count = len(books)
+
+    @api.depends('book_ids.price')
+    def _compute_total_book_price(self):
+        for price in self:
+            price.total_book_price = sum(price.book_ids.mapped('price'))
+
 
         
 

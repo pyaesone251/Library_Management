@@ -25,6 +25,7 @@
                             <field name="author" />
                             <field name="price" />
                             <field name="category_id" />
+                            <field name="category_name" />
                         </group>
                         <group>
                             <button name="action_create_book" string="Create Book" type="object" class="btn btn-primary"/>

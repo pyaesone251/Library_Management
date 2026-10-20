@@ -20,6 +20,9 @@
                     <group>
                         <group>
                             <field name="name"/>
+                            <field name="book_count" />
+                            <field name="cheap_book_count" />
+                            <field name="total_book_price" />
                         </group>
                         <group>
                             <button name="action_count" string="Count" type="object" class="btn btn-primary"/>

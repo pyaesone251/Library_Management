@@ -1,5 +1,6 @@
 from odoo import models,fields,api
 from odoo.exceptions import UserError,ValidationError
+from odoo.tools.float_utils import float_compare
 
 class LibraryBook(models.Model):
     _name = 'library.book'
@@ -9,6 +10,7 @@ class LibraryBook(models.Model):
     author = fields.Char('Author')
     price = fields.Float('Price')
     category_id = fields.Many2one('library.category',string='Category')
+    category_name = fields.Char('Category Name',related="category_id.name")
 
     def action_create_book(self):
         book = self.env['library.book'].create({
@@ -88,6 +90,14 @@ class LibraryBook(models.Model):
             'res_model':'library.book',
             'view_mode':'list'
         }
+
+    @api.constrains('price')
+    def _check_price(self):
+        for book in self:
+            if float_compare(book.price,0.0,precision_digits=0) < 0:
+                raise ValidationError(
+                    'Book price cannot be negative'
+                )
 
 
 
