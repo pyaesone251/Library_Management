@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_library_loan_list" model="ir.ui.view">
+        <field name="name">library.loan.list</field>
+        <field name="model">library.loan</field>
+        <field name="arch" type="xml">
+            <list string="Loans"
+                  decoration-info="state == 'borrowed'"
+                  decoration-success="state == 'returned'"
+                  decoration-muted="state == 'cancelled'">
+                <field name="name"/>
+                <field name="member_id"/>
+                <field name="book_id"/>
+                <field name="borrow_date"/>
+                <field name="due_date"/>
+                <field name="return_date"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_library_loan_form" model="ir.ui.view">
+        <field name="name">library.loan.form</field>
+        <field name="model">library.loan</field>
+        <field name="arch" type="xml">
+            <form string="Loan">
+                <header>
+                    <button name="action_borrow" string="Borrow" type="object"
+                            class="oe_highlight" invisible="state != 'draft'"/>
+                    <button name="action_return" string="Return" type="object"
+                            class="oe_highlight" invisible="state != 'borrowed'"/>
+                    <button name="action_cancel" string="Cancel" type="object"
+                            invisible="state != 'draft'"
+                            confirm="Cancel this Draft loan?"/>
+                    <field name="state" widget="statusbar" readonly="1"
+                           statusbar_visible="draft,borrowed,returned,cancelled"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="LOAN-001"
+                                   readonly="state != 'draft'"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="member_id" readonly="state != 'draft'"/>
+                            <field name="book_id" readonly="state != 'draft'"/>
+                        </group>
+                        <group>
+                            <field name="due_date" readonly="state != 'draft'"/>
+                            <field name="borrow_date" readonly="1"/>
+                            <field name="return_date" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_library_loan_search" model="ir.ui.view">
+        <field name="name">library.loan.search</field>
+        <field name="model">library.loan</field>
+        <field name="arch" type="xml">
+            <search string="Loans">
+                <field name="name"/>
+                <field name="member_id"/>
+                <field name="book_id"/>
+                <filter name="draft" string="Draft" domain="[('state', '=', 'draft')]"/>
+                <filter name="borrowed" string="Borrowed" domain="[('state', '=', 'borrowed')]"/>
+                <filter name="returned" string="Returned" domain="[('state', '=', 'returned')]"/>
+                <filter name="cancelled" string="Cancelled" domain="[('state', '=', 'cancelled')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_member" string="Member" context="{'group_by': 'member_id'}"/>
+                <filter name="group_book" string="Book" context="{'group_by': 'book_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_library_loan" model="ir.actions.act_window">
+        <field name="name">Loans</field>
+        <field name="res_model">library.loan</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_library_loan_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create your first borrowing record.</p>
+            <p>Select a member, a book, and a due date, then click Borrow.</p>
+        </field>
+    </record>
+</odoo>
